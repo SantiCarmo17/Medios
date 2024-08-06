@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { Switch } from "@/components/ui/switch";
-import { HomeIcon, BookIcon, PenToolIcon, ClipboardIcon, CircleAlertIcon, TriangleAlertIcon, UserIcon, FileTextIcon, SettingsIcon, LogOutIcon, XIcon, ChevronDownIcon, ClipboardList } from "lucide-react";
+import { HomeIcon, BookIcon, PenToolIcon, ClipboardIcon, CircleAlertIcon, TriangleAlertIcon, UserIcon, FileTextIcon, SettingsIcon, LogOutIcon, XIcon, ChevronDownIcon, ClipboardList, List, HandCoins } from "lucide-react";
 import { MdOutlineConstruction } from "react-icons/md";
 import { Divider } from '@mui/material';
 
@@ -16,27 +16,35 @@ export const Menu = ({ children }) => {
     const menuItems = [
         { name: "Inicio", to: "/inicio" },
         { 
+            name: "Prestamos", 
+            to: "/prestamos", 
+            subMenu: [
+                { name: "Lista 1", to: "/prestamos/lista" }, 
+                { name: "Lista 2", to: "/prestamos/lista2" }, 
+            ]
+        },
+        { 
             name: "Elementos", 
             to: "/elementos", 
             subMenu: [
                 { name: "Formulario", to: "/elementos/formulario" }, 
-                { name: "Encargos", to: "/elementos/encargos" }
+                // { name: "Encargos", to: "/elementos/encargos" }
             ]
         },
         { 
-            name: "Alertas", 
-            to: "/alertas", 
+            name: "Areas", 
+            to: "/areas", 
             subMenu: [
-                { name: "Consumos", to: "/alertas/consumos" }, 
-                { name: "Encargos", to: "/alertas/encargos" }
+                { name: "Formulario", to: "/areas/formulario" }, 
+                // { name: "Encargos", to: "/alertas/encargos" }
             ]
         },
         { 
-            name: "Usuarios", 
-            to: "/usuarios", 
+            name: "Clientes", 
+            to: "/clientes", 
             subMenu: [
                 { name: "Formulario", to: "/usuarios/formulario" }, 
-                { name: "Encargos", to: "/usuarios/encargos" }
+                // { name: "Encargos", to: "/usuarios/encargos" }
             ]
         },
         { 
@@ -44,15 +52,15 @@ export const Menu = ({ children }) => {
             to: "/roles", 
             subMenu: [
                 { name: "Formulario", to: "/roles/formulario" }, 
-                { name: "Encargos", to: "/roles/encargos" }
+                // { name: "Encargos", to: "/roles/encargos" }
             ]
         },
         { 
             name: "Admin", 
             to: "/admin", 
             subMenu: [
-                { name: "Consumos", to: "/admin/consumos" }, 
-                { name: "Encargos", to: "/admin/encargos" }
+                { name: "Formulario", to: "/administrador/formulario" }, 
+                // { name: "Encargos", to: "/admin/encargos" }
             ]
         }
     ];
@@ -159,12 +167,15 @@ function Icon({ name, ...props }) {
         "Inicio": <HomeIcon {...props} />,
         "Consumos": <PenToolIcon {...props} />,
         "Encargos": <ClipboardIcon {...props} />,
-        "Alertas": <CircleAlertIcon {...props} />,
-        "Usuarios": <UserIcon {...props} />,
+        "Areas": <CircleAlertIcon {...props} />,
+        "Clientes": <UserIcon {...props} />,
         "Roles": <FileTextIcon {...props} />,
         "Admin": <SettingsIcon {...props} />,
         "Elementos": <MdOutlineConstruction {...props} />,
         "Formulario": <ClipboardList {...props} />,
+        "Lista 1": <List {...props} />,
+        "Lista 2": <List {...props} />,
+        "Prestamos": <HandCoins {...props} />,
     };
     return icons[name] || <XIcon {...props} />;
 }

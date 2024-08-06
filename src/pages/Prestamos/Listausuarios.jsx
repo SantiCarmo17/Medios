@@ -191,7 +191,7 @@ export const ListaUsuarios = () => {
                             selected={isItemSelected}
                           >
                                 <TableCell component="th" id={labelId} scope="row">
-                                 {row.id}
+                                 {row.documento}
                                 </TableCell>
                                 <TableCell>{row.nombre}</TableCell>
                                 {/* <TableCell>{row.estado ? <ToggleOnIcon color='primary' /> : <ToggleOffIcon sx={{ fontSize: 30 }} color='primary' />}</TableCell>                                 */}
